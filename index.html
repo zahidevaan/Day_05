@@ -1,0 +1,938 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 05 of (100DaysOfCode) </title>
+
+    <!-- Custom Font -->
+    <link href="https://api.fontshare.com/v2/css?f[]=space-grotesk@300,400,500,600,700&display=swap" rel="stylesheet">
+      <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer ></script>
+
+    <!-- Rimixicon CDN -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+
+    <script type="module" crossorigin src="./assets/index-ul1QunBS.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-D74fiTom.css">
+  </head>
+  <body class="font-serif relative overflow-x-hidden">
+    <div id="main" >
+
+      <!-- Annoucement bar start -->
+      <section class="annoucement-area w-full">
+        <div class="header mx-auto">
+          <div class="contents-area w-full">
+
+            <div class="announcement-bar bg-dark-creem py-2 flex items-center justify-center gap-3 w-full">
+              <img src="data:image/png;base64,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" alt="Free-shipping" class="w-5 md:w-7">
+              <h3 class="annoucement text-center text-xs text-primary-green lg:text-xl">Free shipping (3-4 working days) on orders over $60. </h3>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+      <!-- Annoucement bar end -->
+
+      <!-- Header section start here -->
+       <header class="header-area  w-full lg:top-14 z-[99999]">
+          <div class="header container mx-auto">
+
+              <!-- Desktop Navigation Start Here -->
+              <nav class="nav-bar px-5 py-3 lg:px-12 lg:py-2">
+                <div class="nav-row flex justify-between items-center">
+
+                  <!-- Desktop Menu Block Start Here -->
+                  <div class="desktop-menus-block hidden lg:flex gap-10 items-center justify-center">
+                    <a href="#" class="text-xl text-white transition-colors duration-300 hover:text-black">Shop</a>
+                    <a href="#" class="text-xl text-white transition-colors duration-300 hover:text-black">Shop By Categories</a>
+                    <a href="#" class="text-xl text-white transition-colors duration-300 hover:text-black">Gift Sets</a>
+                  </div>
+                  <!-- Desktop Menu Block End Here -->
+
+                  <!-- Desktop Logo Block Start Here -->
+                  <div class="desktop-logo-block">
+                    <a href="#" class="cursor-pointer" >
+                      <img src="data:image/png;base64,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" alt="Logo" class="w-40 lg:w-60">
+                    </a>
+                  </div>
+                  <!-- Desktop Logo Block End Here -->
+
+                   <!-- Desktop Icon Block Start Here -->
+                   <div class="desktop-icon-block hidden lg:flex gap-4 items-center justify-center">
+                    
+                    <select name="currency" id="" class="bg-transparent text-white border-none outline-none cursor-pointer text-xl">
+                      <option class="bg-primary-green cursor-pointer text-white" value="$USD">$USD</option>
+                      <option class="bg-primary-green cursor-pointer text-white" value="$URO">$URO</option>
+                      <option class="bg-primary-green cursor-pointer text-white" value="$BDT">$BDT</option>
+                    </select>
+
+
+                    <span class="user-icon text-white text-xl cursor-pointer hover:text-black">
+                      <a href="#"><i class="ri-search-line"></i></a>
+                    </span>
+      
+                    <span class="cart-icon text-white text-xl cursor-pointer hover:text-black">
+                      <a href="#"><i class="ri-user-line"></i></a>
+                    </span>
+      
+                    <span class="cart-icon text-white text-xl cursor-pointer hover:text-black">
+                      <a href="#"><i class="ri-shopping-cart-line"></i></a>
+                    </span>
+                  </div>
+                  <!-- Desktop Icon Block End Here -->
+
+                   <!-- Mobile Menu Icon Start -->
+                    <div class="hamburger lg:hidden">
+                      <i class="ri-menu-3-line text-light-creem text-2xl cursor-pointer p-2 rounded-full hover:bg-cyan-500 hover:text-cyan-950 transition-colors duration-300"></i>
+                    </div>
+                  <!-- Mobile Menu Icon Start -->
+
+                </div>
+              </nav>
+              <!-- Desktop Navigation End Here -->
+
+          </div>
+
+           <!-- Mobile Menus Start Here -->
+           <div class="menu-wrapper fixed transition-all duration-500  h-full w-2/3 md:w-72 bg-green-300 py-20">
+
+            <!-- menu close icon start here -->
+            <span class="menu-close-icon absolute top-5 right-5 text-primary-green text-2xl cursor-pointer transition-colors duration-200 hover:text-red-500 p-1">
+              <i class="ri-close-large-line"></i>
+            </span>
+            <!-- menu close icon end here -->
+
+            <!-- Mobile menu icons block start -->
+            <div class="shop-icons flex items-center justify-center gap-5 py-6 border-b-2 border-light-creem mb-5">
+
+              <select name="currency" id="" class="bg-green-300 text-primary-green border-none outline-none cursor-pointer text-xl">
+                <option value="$USD">$USD</option>
+                <option value="$URO">$URO</option>
+                <option value="$BDT">$BDT</option>
+              </select>
+
+              <span class="user-icon text-primary-green text-2xl cursor-pointer hover:text-black">
+                <i class="ri-search-line"></i>
+              </span>
+
+              <span class="cart-icon text-primary-green text-2xl cursor-pointer hover:text-black">
+                <i class="ri-user-line"></i>
+              </span>
+
+              <span class="cart-icon text-primary-green text-2xl cursor-pointer hover:text-black">
+                <i class="ri-shopping-cart-line"></i>
+              </span> 
+
+            </div>
+            <!-- Mobile menu icons block end -->
+
+            <!-- Mobile Menus Start Here -->
+            <div class="menus flex flex-col">
+
+              <a class="menu-item text-black relative overflow-hidden before:transition-all before:duration-500  w-full px-6 py-3 text-xl cursor-pointer before:w-full before:h-full before:absolute before:bg-gradient-to-l before:to-primary-green before:from-dark-creem before:top-0 before:left-0 before:transform before:translate-y-[-100%] before:z-[-1] hover:before:translate-y-0 hover:border-0 flex justify-between hover:text-light-creem"  href="#">
+                <span class="menu-text z-[3]">Shop</span>
+                <span class="menu-icon z-[3] text-cyan-950"><i class="ri-arrow-right-line"></i></span>
+              </a>   
+
+              <a class="menu-item text-black relative overflow-hidden before:transition-all before:duration-500  w-full px-6 py-3 text-xl cursor-pointer before:w-full before:h-full before:absolute before:bg-gradient-to-l before:to-primary-green before:from-dark-creem before:top-0 before:left-0 before:transform before:translate-y-[-100%] before:z-[-1] hover:before:translate-y-0 hover:border-0 flex justify-between hover:text-light-creem"  href="#">
+                <span class="menu-text z-[3]">Shop By Categories</span>
+                <span class="menu-icon z-[3] text-cyan-950"><i class="ri-arrow-right-line"></i></span>
+              </a>
+
+              <a class="menu-item text-black relative overflow-hidden before:transition-all before:duration-500  w-full px-6 py-3 text-xl cursor-pointer before:w-full before:h-full before:absolute before:bg-gradient-to-l before:to-primary-green before:from-dark-creem before:top-0 before:left-0 before:transform before:translate-y-[-100%] before:z-[-1] hover:before:translate-y-0 hover:border-0 flex justify-between hover:text-light-creem"  href="#">
+                <span class="menu-text z-[3]">Gift Sets</span>
+                <span class="menu-icon z-[3] text-cyan-950"><i class="ri-arrow-right-line"></i></span>
+              </a>
+
+
+            </div>
+            <!-- Mobile Menus End Here -->
+
+            <div class="buttons mt-20 w-full flex items-center justify-center">
+              <button class="text-medium-green py-3 px-6 bg-primary-green rounded-xl cursor-pointer text-xl hover:bg-black hover:text-white transition-colors duration-300">Become a Partner <i class="ri-arrow-right-line"></i></button>
+            </div>
+          </div>
+          <!-- Mobile Menus end Here -->
+
+       </header>
+      <!-- Header section End here -->
+
+      <!-- Hero section start here -->
+      <section class="hero-area container mx-auto relative h-[70vh] lg:h-screen">
+        <div class="hero-section absolute top-0 left-0 w-full h-full">
+          <div class="contents-area w-full h-full flex items-center justify-center">
+
+            <!-- Hero background start here -->
+             <div class="hero-bg-area w-full h-full absolute top-0 left-0 z-[-1]">
+             <img class="h-full w-full object-cover" src="./assets/Hero-banner-BtIHkfiB.png" alt="">
+             </div>
+            <!-- Hero background end here -->
+
+            <!-- Hero Contents block start here -->
+             <div class="hero-content-block z-[1] w-[90%] mx-auto lg:w-2/3 flex flex-col items-center justify-center gap-8">
+
+              <h2 class="hero-title text-3xl text-white text-center font-[100] lg:text-6xl">
+                Customized candles for corporate gifting from $10
+              </h2>
+
+              <a href="" class="uppercase text-xl py-3 px-8 bg-white rounded-full transition-colors duration-500 hover:bg-primary-green hover:text-white">
+                Shop all products
+              </a>
+
+              <a href="" class="uppercase text-xl py-3 text-white border-b border-white">
+                browse categories
+              </a>
+
+             </div>
+            <!-- Hero Contents block end here -->
+
+          </div>
+        </div>
+      </section>
+      <!-- Header section End here -->
+
+      <!-- Trading Product section start here -->
+      <section class="tranding-product-area w-full  bg-[#F6F8EE]">
+        <div class="tranding-product container mx-auto bg-light-creem">
+          <div class="contents-area w-full px-5 py-12 lg:px-12 lg:py-24">
+
+            <!-- section title block start here -->
+            <div class="tranding-section-title-block flex items-center justify-between py-3">
+              <h2 class="trading-title text-2xl text-primary-green font-bold lg:text-6xl">
+                Trending candles
+              </h2>
+
+              <a href="#" class="uppercase text-primary-green lg:text-xl py-2">
+                shop all bestsellers 
+                <i class="ri-arrow-right-line"></i> 
+              </a>
+            </div>
+            <!-- section title block end here -->
+
+            <!-- Tranding Product Block row Start Here -->
+            <div class="swiper tranding-products py-3 relative">
+              <div class="swiper-wrapper ">
+
+                <!-- Single Slide Start Here -->
+                <div class="swiper-slide w-full">
+                  <div class="slide-product flex w-full mx-auto flex-col gap-6 p-6 pt-10 rounded-xl transition-shadow duration-300 hover:shadow-xl cursor-pointer">
+
+                    <div class="porduct-img-wrapper w-full flex items-center justify-center">
+                      <img src="./assets/product-1-CQCbLyxf.png" alt="" class="w-[130px] h-[130px] object-contain">
+                    </div>
+
+                    <div class="product-infos">
+                      <p class="product-vendor clear-start uppercase text-primary-green">delicate care</p>
+
+                      <h2 class="product-title text-primary-green text-xl py-2 font-semibold">
+                        White team ginger candle
+                      </h2>
+
+                      <div class="product-review flex items-center justify-start gap-1 w-full text-primary-green py-3">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <p>(26 reviews)</p>
+                      </div>
+
+                      <a href="#" class="text-xs text-white py-4 px-6 block bg-primary-green rounded-full gap-3 w-fit mt-3 uppercase">
+                        <span class="pr-2">from: $29.00 usd</span>
+                        <span class="font-semibold pl-2 border-l border-white">add to cart</span>
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Single Slide End Here -->
+
+                <!-- Single Slide Start Here -->
+                <div class="swiper-slide w-full">
+                  <div class="slide-product flex w-full mx-auto flex-col gap-6 p-6 pt-10 rounded-xl transition-shadow duration-300 hover:shadow-xl cursor-pointer">
+
+                    <div class="porduct-img-wrapper w-full flex items-center justify-center">
+                      <img src="./assets/product-2-CdoZdkFN.png" alt="" class="w-[130px] h-[130px] object-contain">
+                    </div>
+
+                    <div class="product-infos">
+                      <p class="product-vendor clear-start uppercase text-primary-green">delicate care</p>
+
+                      <h2 class="product-title text-primary-green text-xl py-2 font-semibold">
+                        White team ginger candle
+                      </h2>
+
+                      <div class="product-review flex items-center justify-start gap-1 w-full text-primary-green py-3">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <p>(26 reviews)</p>
+                      </div>
+
+                      <a href="#" class="text-xs text-white py-4 px-6 block bg-primary-green rounded-full gap-3 w-fit mt-3 uppercase">
+                        <span class="pr-2">from: $29.00 usd</span>
+                        <span class="font-semibold pl-2 border-l border-white">add to cart</span>
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Single Slide End Here -->
+
+                <!-- Single Slide Start Here -->
+                <div class="swiper-slide w-full">
+                  <div class="slide-product flex w-full mx-auto flex-col gap-6 p-6 pt-10 rounded-xl transition-shadow duration-300 hover:shadow-xl cursor-pointer ">
+
+                    <div class="porduct-img-wrapper w-full flex items-center justify-center">
+                      <img src="./assets/product-3-CuLGfXNJ.png" alt="" class="w-[130px] h-[130px] object-contain">
+                    </div>
+
+                    <div class="product-infos">
+                      <p class="product-vendor clear-start uppercase text-primary-green">delicate care</p>
+
+                      <h2 class="product-title text-primary-green text-xl py-2 font-semibold">
+                        Honeysuckle green team candle
+                      </h2>
+
+                      <div class="product-review flex items-center justify-start gap-1 w-full text-primary-green py-3">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <p>(26 reviews)</p>
+                      </div>
+
+                      <a href="#" class="text-xs text-white py-4 px-6 block bg-primary-green rounded-full gap-3 w-fit mt-3 uppercase">
+                        <span class="pr-2">from: $29.00 usd</span>
+                        <span class="font-semibold pl-2 border-l border-white">add to cart</span>
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Single Slide End Here -->
+
+                <!-- Single Slide Start Here -->
+                <div class="swiper-slide w-full">
+                  <div class="slide-product flex w-full mx-auto flex-col gap-6 p-6 pt-10 rounded-xl transition-shadow duration-300 hover:shadow-xl cursor-pointer ">
+
+                    <div class="porduct-img-wrapper w-full flex items-center justify-center">
+                      <img src="./assets/product-4-Rck0CjEx.png" alt="" class="w-[130px] h-[130px] object-contain">
+                    </div>
+
+                    <div class="product-infos">
+                      <p class="product-vendor clear-start uppercase text-primary-green">delicate care</p>
+
+                      <h2 class="product-title text-primary-green text-xl py-2 font-semibold">
+                        White team palmarosa candle
+                      </h2>
+
+                      <div class="product-review flex items-center justify-start gap-1 w-full text-primary-green py-3">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <p>(26 reviews)</p>
+                      </div>
+
+                      <a href="#" class="text-xs text-white py-4 px-6 block bg-primary-green rounded-full gap-3 w-fit mt-3 uppercase">
+                        <span class="pr-2">from: $29.00 usd</span>
+                        <span class="font-semibold pl-2 border-l border-white">add to cart</span>
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Single Slide End Here -->
+
+                <!-- Single Slide Start Here -->
+                <div class="swiper-slide w-full">
+                  <div class="slide-product flex w-full mx-auto flex-col gap-6 p-6 pt-10 rounded-xl transition-shadow duration-300 hover:shadow-xl cursor-pointer">
+
+                    <div class="porduct-img-wrapper w-full flex items-center justify-center">
+                      <img src="./assets/product-1-CQCbLyxf.png" alt="" class="w-[130px] h-[130px] object-contain">
+                    </div>
+
+                    <div class="product-infos">
+                      <p class="product-vendor clear-start uppercase text-primary-green">delicate care</p>
+
+                      <h2 class="product-title text-primary-green text-xl py-2 font-semibold">
+                        White team ginger candle
+                      </h2>
+
+                      <div class="product-review flex items-center justify-start gap-1 w-full text-primary-green py-3">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <p>(26 reviews)</p>
+                      </div>
+
+                      <a href="#" class="text-xs text-white py-4 px-6 block bg-primary-green rounded-full gap-3 w-fit mt-3 uppercase">
+                        <span class="pr-2">from: $29.00 usd</span>
+                        <span class="font-semibold pl-2 border-l border-white">add to cart</span>
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Single Slide End Here -->
+
+                <!-- Single Slide Start Here -->
+                <div class="swiper-slide w-full">
+                  <div class="slide-product flex w-full mx-auto flex-col gap-6 p-6 pt-10 rounded-xl transition-shadow duration-300 hover:shadow-xl cursor-pointer">
+
+                    <div class="porduct-img-wrapper w-full flex items-center justify-center">
+                      <img src="./assets/product-2-CdoZdkFN.png" alt="" class="w-[130px] h-[130px] object-contain">
+                    </div>
+
+                    <div class="product-infos">
+                      <p class="product-vendor clear-start uppercase text-primary-green">delicate care</p>
+
+                      <h2 class="product-title text-primary-green text-xl py-2 font-semibold">
+                        White team ginger candle
+                      </h2>
+
+                      <div class="product-review flex items-center justify-start gap-1 w-full text-primary-green py-3">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <p>(26 reviews)</p>
+                      </div>
+
+                      <a href="#" class="text-xs text-white py-4 px-6 block bg-primary-green rounded-full gap-3 w-fit mt-3 uppercase">
+                        <span class="pr-2">from: $29.00 usd</span>
+                        <span class="font-semibold pl-2 border-l border-white">add to cart</span>
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Single Slide End Here -->
+
+                <!-- Single Slide Start Here -->
+                <div class="swiper-slide w-full">
+                  <div class="slide-product flex w-full mx-auto flex-col gap-6 p-6 pt-10 rounded-xl transition-shadow duration-300 hover:shadow-xl cursor-pointer">
+
+                    <div class="porduct-img-wrapper w-full flex items-center justify-center">
+                      <img src="./assets/product-3-CuLGfXNJ.png" alt="" class="w-[130px] h-[130px] object-contain">
+                    </div>
+
+                    <div class="product-infos">
+                      <p class="product-vendor clear-start uppercase text-primary-green">delicate care</p>
+
+                      <h2 class="product-title text-primary-green text-xl py-2 font-semibold">
+                        Honeysuckle green team candle
+                      </h2>
+
+                      <div class="product-review flex items-center justify-start gap-1 w-full text-primary-green py-3">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <p>(26 reviews)</p>
+                      </div>
+
+                      <a href="#" class="text-xs text-white py-4 px-6 block bg-primary-green rounded-full gap-3 w-fit mt-3 uppercase">
+                        <span class="pr-2">from: $29.00 usd</span>
+                        <span class="font-semibold pl-2 border-l border-white">add to cart</span>
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Single Slide End Here -->
+                 
+                <!-- Single Slide Start Here -->
+                <div class="swiper-slide w-full">
+                  <div class="slide-product flex w-full mx-auto flex-col gap-6 p-6 pt-10 rounded-xl transition-shadow duration-300 hover:shadow-xl cursor-pointer">
+
+                    <div class="porduct-img-wrapper w-full flex items-center justify-center">
+                      <img src="./assets/product-4-Rck0CjEx.png" alt="" class="w-[130px] h-[130px] object-contain">
+                    </div>
+
+                    <div class="product-infos">
+                      <p class="product-vendor clear-start uppercase text-primary-green">delicate care</p>
+
+                      <h2 class="product-title text-primary-green text-xl py-2 font-semibold">
+                        White team palmarosa candle
+                      </h2>
+
+                      <div class="product-review flex items-center justify-start gap-1 w-full text-primary-green py-3">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <p>(26 reviews)</p>
+                      </div>
+
+                      <a href="#" class="text-xs text-white py-4 px-6 block bg-primary-green rounded-full gap-3 w-fit mt-3 uppercase">
+                        <span class="pr-2">from: $29.00 usd</span>
+                        <span class="font-semibold pl-2 border-l border-white">add to cart</span>
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Single Slide End Here -->
+
+               
+              </div>
+              
+
+              <!-- slider buttons block start here -->
+               <div class="slider-button-block w-full flex items-center justify-between relative gap-5 mt-6">
+
+                <div class="pagination"></div>
+
+                <div class="buttons flex items-center justify-center gap-2 ml-auto">
+
+                  <div class="button-prev text-4xl cursor-pointer text-primary-green">
+                    <i class="ri-arrow-left-circle-line"></i>
+                  </div>
+
+                  <div class="button-next text-4xl cursor-pointer text-primary-green">
+                    <i class="ri-arrow-right-circle-line"></i>
+                  </div>
+
+                </div>
+               </div>
+              <!-- slider buttons block end here -->
+
+              
+            </div>
+            <!-- Tranding Product Block row End Here -->
+
+          </div>
+        </div>
+      </section>
+      <!-- Trading Product section start here -->
+
+
+      <!-- Text section start here -->
+      <section class="text-area w-full">
+        <div class="text-section container mx-auto">
+          <div class="contents-area w-full px-5 py-12 lg:px-12 lg:py-24 bg-white relative">
+
+            <!-- Text section text block start here -->
+            <div class="text-contents max-w-[850px] w-full mx-auto flex items-center justify-center flex-col gap-4 py-8 lg:py-16">
+
+              <p class=" uppercase text-primary-green text-center text-xl">
+                about freedom flames candles
+              </p>
+
+              <h2 class="text-primary-green text-3xl text-center lg:text-5xl lg:leading-snug">
+                Made with a vegan coconut soy wax blend,   <span><img class="inline w-16 lg:w-20" src="/assets/heading-img%20(1)-62PSbrsi.png" alt=""></span>     100% pure essential oils and promises to bring a dose of calm into your home. <span><img class="inline w-16 lg:w-20" src="./assets/heading-img%20(2)-DVAbwqGw.png" alt=""></span> 
+              </h2>
+
+            </div>
+            <!-- Text section text block start here -->
+
+            <!-- Text Sectin border bottom block Start here -->
+            <div class="bottom-border-aria flex w-full items-center justify-between lg:gap-12 absolute bottom-0 left-0 px-10">
+              <div class="bg-[#C6D9C2] h-[3px] w-full lg:w-1/3"></div>
+              <div class="bg-[#C6D9C2] h-[3px] w-full lg:w-1/3"></div>
+              <div class="bg-[#C6D9C2] h-[3px] w-full lg:w-1/3"></div>
+            </div>
+            <!-- Text Sectin border bottom block end here -->
+
+          </div>
+        </div>
+      </section>
+      <!-- Text section End here -->
+
+
+      <!-- Gift Heading section start here -->
+      <section class="gift-heading-section container mx-auto h-screen flex items-center justify-center overflow-x-hidden bg-primary-green">
+
+        <h2 class="gift-heading text-white text-[80vh] lg:text-[25vw] whitespace-nowrap uppercase text-left font-black translate-x-1/2 leading-none">
+          Explore our gift sets you must like!
+        </h2>
+
+      </section>
+      <!-- Gift Heading section End here -->
+
+
+      <!-- Gift Banner Section Start Here -->
+      <section class="gift-banner-section w-full">
+        <div class="gift-banner-area container mx-auto w-full lg:py-24 relative overflow-x-hidden">
+         
+          <!-- gift banner row start here -->
+            <div class="gift-banner-row w-full lg:h-[650px] bg-primary-green flex lg:flex-row flex-col">
+              <div class="gift-banner-img-col w-full lg:w-1/2">
+                  <img class="w-full h-full object-cover" src="./assets/Gift-B35BDIfe.png" alt="">
+              </div>
+
+              <div class="gift-banner-content-col w-full lg:w-1/2">
+               <div class="col-content-wrapper p-10 flex flex-col items-start justify-start w-full h-full gap-6 relative">
+                <h2 class="text-4xl text-white py-3 lg:text-5xl">
+                  Explore our gift sets
+                </h2>
+
+                <p class="text-xl  text-white ">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+
+                </p>
+
+                <a href="#" class="text-black bg-white py-3 px-12 rounded-full uppercase transition-colors duration-300 hover:bg-black hover:text-white" >
+                  Shop all products
+                </a>
+
+
+                <!-- Gift slider buttons start here -->
+                <div class="gift-slder-buttons w-full flex items-center justify-end gap-3 relative">
+                  <div class="gift-button-next text-3xl text-white cursor-pointer">
+                    <i class="ri-arrow-left-circle-line"></i>
+                  </div>
+                  <div class="gift-button-prev text-3xl text-white cursor-pointer">
+                    <i class="ri-arrow-right-circle-line"></i>
+                  </div>
+                </div>
+                <!-- Gift slider buttons end here -->
+
+               </div>
+              </div>
+            </div>
+          <!-- gift banner row start here -->
+
+
+          <!-- Gift Items Start here -->
+           <div class="gift-items w-[95%] mx-auto h-[200px] p-6 bg-white lg:z-[5] lg:w-[1050px] lg:absolute lg:bottom-32 lg:-right-44 lg:rounded-xl lg:shadow-xl">
+
+            <!-- Gifts items slider start here -->
+             <div class="gift-items-slider">
+
+              <div class="swiper gifts-slider">
+                <div class="swiper-wrapper flex items-center justify-start">
+
+
+                  <!-- Gift Signle slide Start here -->
+                  <div class="swiper-slide">
+                    <div class="slide-contents p-4 flex items-center justify-between bg-light-green rounded-xl shadow-xl gap-2">
+                      <img src="./assets/gift-item%20(1)-BC5KrG05.png" alt="">
+
+                      <div class="girft-product-info">
+
+                        <h2 class="text-xs text-[#4F6D5A] font-semibold py-1">
+                          Calming & Grounding Duo Candle Gift Set
+                        </h2>
+
+                        <p class="font-semibold text-[#92B598] py-1">
+                          from: $50.00 usd
+                        </p>
+
+                        <div class="reviews flex items-center justify-start gap-1">
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+ 
+                          <span class="uppercase text-[#4F6D5A] text-xs">(26 reviews)</span>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                  <!-- Gift Signle slide end here -->
+                  
+
+
+                  <!-- Gift Signle slide Start here -->
+                  <div class="swiper-slide">
+                    <div class="slide-contents p-4 flex items-center justify-between bg-light-green rounded-xl shadow-xl gap-2">
+                      <img src="./assets/gift-item%20(2)-Dc2uyng2.png" alt="">
+
+                      <div class="girft-product-info">
+
+                        <h2 class=" text-xs text-[#4F6D5A] font-semibold py-1">
+                          Floral Symphony Duo Candle Gift Set
+                        </h2>
+
+                        <p class="font-semibold text-[#92B598] py-1">
+                          from: $50.00 usd
+                        </p>
+
+                        <div class="reviews flex items-center justify-start gap-1">
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+ 
+                          <span class="uppercase text-[#4F6D5A] text-xs">(26 reviews)</span>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                  <!-- Gift Signle slide end here -->
+                  
+
+
+                  <!-- Gift Signle slide Start here -->
+                  <div class="swiper-slide">
+                    <div class="slide-contents p-4 flex items-center justify-between bg-light-green rounded-xl shadow-xl gap-2">
+                      <img src="./assets/gift-item%20(3)-GYOolf4n.png" alt="">
+
+                      <div class="girft-product-info">
+
+                        <h2 class=" text-xs text-[#4F6D5A] font-semibold py-1">
+                          Calming & Grounding Duo Candle Gift Set
+                        </h2>
+
+                        <p class="font-semibold text-[#92B598] py-1">
+                          from: $50.00 usd
+                        </p>
+
+                        <div class="reviews flex items-center justify-start gap-1">
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+ 
+                          <span class="uppercase text-[#4F6D5A] text-xs">(26 reviews)</span>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                  <!-- Gift Signle slide end here -->
+                  
+
+                  
+                  <!-- Gift Signle slide Start here -->
+                  <div class="swiper-slide">
+                    <div class="slide-contents p-4 flex items-center justify-between bg-light-green rounded-xl shadow-xl gap-2">
+                      <img src="./assets/gift-item%20(1)-BC5KrG05.png" alt="">
+
+                      <div class="girft-product-info">
+
+                        <h2 class="text-xs text-[#4F6D5A] font-semibold py-1">
+                          Calming & Grounding Duo Candle Gift Set
+                        </h2>
+
+                        <p class="font-semibold text-[#92B598] py-1">
+                          from: $50.00 usd
+                        </p>
+
+                        <div class="reviews flex items-center justify-start gap-1">
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+ 
+                          <span class="uppercase text-[#4F6D5A] text-xs">(26 reviews)</span>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                  <!-- Gift Signle slide end here -->
+                  
+
+
+                  <!-- Gift Signle slide Start here -->
+                  <div class="swiper-slide">
+                    <div class="slide-contents p-4 flex items-center justify-between bg-light-green rounded-xl shadow-xl gap-2">
+                      <img src="./assets/gift-item%20(2)-Dc2uyng2.png" alt="">
+
+                      <div class="girft-product-info">
+
+                        <h2 class=" text-xs text-[#4F6D5A] font-semibold py-1">
+                          Floral Symphony Duo Candle Gift Set
+                        </h2>
+
+                        <p class="font-semibold text-[#92B598] py-1">
+                          from: $50.00 usd
+                        </p>
+
+                        <div class="reviews flex items-center justify-start gap-1">
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+ 
+                          <span class="uppercase text-[#4F6D5A] text-xs">(26 reviews)</span>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                  <!-- Gift Signle slide end here -->
+                  
+
+
+                  <!-- Gift Signle slide Start here -->
+                  <div class="swiper-slide">
+                    <div class="slide-contents p-4 flex items-center justify-between bg-light-green rounded-xl shadow-xl gap-2">
+                      <img src="./assets/gift-item%20(3)-GYOolf4n.png" alt="">
+
+                      <div class="girft-product-info">
+
+                        <h2 class=" text-xs text-[#4F6D5A] font-semibold py-1">
+                          Calming & Grounding Duo Candle Gift Set
+                        </h2>
+
+                        <p class="font-semibold text-[#92B598] py-1">
+                          from: $50.00 usd
+                        </p>
+
+                        <div class="reviews flex items-center justify-start gap-1">
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M9.14713 1.06244C8.98152 0.718726 8.63156 0.5 8.24723 0.5C7.8629 0.5 7.51606 0.718726 7.34733 1.06244L5.33818 5.19635L0.85118 5.85878C0.476222 5.91502 0.163757 6.17749 0.0481452 6.53682C-0.0674669 6.89616 0.0262726 7.29299 0.294993 7.55858L3.55088 10.7801L2.78221 15.3327C2.71972 15.7077 2.87595 16.0889 3.18529 16.3107C3.49463 16.5326 3.90396 16.5607 4.24143 16.3826L8.25035 14.2422L12.2593 16.3826C12.5967 16.5607 13.0061 16.5357 13.3154 16.3107C13.6248 16.0858 13.781 15.7077 13.7185 15.3327L12.9467 10.7801L16.2026 7.55858C16.4713 7.29299 16.5682 6.89616 16.4494 6.53682C16.3307 6.17749 16.0214 5.91502 15.6464 5.85878L11.1563 5.19635L9.14713 1.06244Z" fill="#C6D9C2"/>
+                          </svg>
+ 
+                          <span class="uppercase text-[#4F6D5A] text-xs">(26 reviews)</span>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                  <!-- Gift Signle slide end here -->
+
+                </div>
+              </div>
+
+             </div>
+            <!-- Gifts items slider start here -->
+
+           </div>
+          <!-- Gift Items end here -->
+
+        </div>
+      </section>
+      <!-- Gift Banner Section End Here -->
+
+
+
+    </div>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  </body>
+</html>
+
